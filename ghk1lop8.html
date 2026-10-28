@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiểm tra giữa học kỳ I Tin học 8</title>
+<style>
+:root{--blue:#2563eb;--ink:#172033;--muted:#5b6475;--line:#dbe3ef;--bg:#f3f7fc}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.wrap{max-width:980px;margin:auto;padding:22px 16px 44px}header{background:linear-gradient(135deg,#1d4ed8,#60a5fa);color:white;padding:24px;border-radius:18px}
+header h1{margin:0 0 6px;font-size:clamp(1.45rem,3vw,2rem);line-height:1.25}header p{margin:4px 0}.pill{display:inline-block;background:#ffffff26;border:1px solid #ffffff55;border-radius:999px;padding:4px 10px;margin-top:10px}
+.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:16px;box-shadow:0 3px 12px #0f172a08}h2{font-size:1.15rem;margin:0 0 14px}
+.student-grid{display:grid;grid-template-columns:2fr 1fr;gap:14px}label.field{display:block;font-weight:650}input[type=text]{display:block;width:100%;margin-top:6px;border:1px solid #b9c6d8;border-radius:10px;padding:11px 12px;font:inherit}
+.status{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.time{font-weight:800;font-size:1.25rem;font-variant-numeric:tabular-nums}.question{border:1px solid var(--line);border-radius:14px;padding:17px;margin:14px 0}.q-title{margin:0 0 12px;font-weight:750}.q-number{color:var(--blue)}.options{display:grid;gap:8px}.option{display:flex;gap:10px;align-items:flex-start;border:1px solid #d9e2ef;border-radius:11px;padding:10px 12px;cursor:pointer}.option:has(input:checked){background:#eff6ff;border-color:var(--blue)}.option input{margin-top:5px;accent-color:var(--blue)}
+.essay-input{display:block;width:100%;min-height:5em;margin-top:8px;padding:10px 12px;border:1px solid #d9e2ef;border-radius:11px;font:inherit;resize:vertical}.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}button{border:0;border-radius:11px;padding:12px 17px;font:inherit;font-weight:750;cursor:pointer}.primary{background:var(--blue);color:white}.secondary{background:#e8eef8;color:#1e293b}.hint,.progress-label{color:var(--muted);font-size:.92rem}.progress-track{height:10px;background:#e5edf8;border-radius:99px;overflow:hidden;margin-top:10px}.progress-bar{height:100%;width:100%;background:var(--blue)}.result{font-weight:750;font-size:1.1rem}footer{color:var(--muted);font-size:.85rem;text-align:center;margin-top:22px}@media(max-width:620px){.student-grid,.status{grid-template-columns:1fr}.panel{padding:15px}}
+</style></head>
+<body><div class="wrap">
+<header><h1>BÀI KIỂM TRA GIỮA HỌC KỲ I – TIN HỌC 8</h1><p>Năm học 2026–2027</p><p>Bộ sách: Kết nối tri thức với cuộc sống</p><span class="pill">10 câu trắc nghiệm + 4 câu tự luận · 10 điểm · 45 phút</span></header>
+<section class="panel"><h2>Thông tin học sinh</h2><div class="student-grid"><label class="field">Họ và tên<input id="studentName" type="text" placeholder="Nhập họ và tên" required></label><label class="field">Lớp<input id="studentClass" type="text" placeholder="Ví dụ: 8A1" required></label></div><p class="hint">Mỗi câu trắc nghiệm chỉ chọn một đáp án. Đề tham khảo được xây dựng theo các nội dung đầu học kỳ của bộ sách.</p></section>
+<section class="panel"><div class="status"><div><h2>Thời gian làm bài</h2><div class="progress-label" id="answeredLabel">Đã trả lời 0/10 câu</div></div><div class="time" id="timeText">45:00</div></div><div class="progress-track"><div class="progress-bar" id="timeBar"></div></div></section>
+<form class="panel" id="quizForm"><h2>Phần I. Trắc nghiệm (5,0 điểm)</h2><div id="questions"></div>
+<h2>Phần II. Tự luận (5,0 điểm)</h2><p class="hint">Phần tự luận cần giáo viên xem xét, chấm điểm.</p>
+<div class="question"><label class="q-title" for="e11">Câu 11 (1,0 điểm). Nêu một vài mốc hoặc thành tựu tiêu biểu trong lịch sử phát triển của máy tính và cho biết máy tính ngày nay có ưu điểm gì.</label><textarea class="essay-input" id="e11"></textarea></div>
+<div class="question"><label class="q-title" for="e12">Câu 12 (1,0 điểm). Thông tin số là gì? Nêu hai đặc điểm của thông tin số và một ví dụ.</label><textarea class="essay-input" id="e12"></textarea></div>
+<div class="question"><label class="q-title" for="e13">Câu 13 (1,5 điểm). Em cần tìm tư liệu trên Internet để làm bài thuyết trình. Hãy nêu các bước giúp đánh giá độ tin cậy của thông tin và giải thích vì sao không nên vội tin mọi nội dung tìm thấy.</label><textarea class="essay-input" id="e13"></textarea></div>
+<div class="question"><label class="q-title" for="e14">Câu 14 (1,5 điểm). Nêu ba việc làm thể hiện sử dụng công nghệ số có đạo đức, đúng pháp luật và có văn hóa. Cho một ví dụ về hành vi không phù hợp trên mạng.</label><textarea class="essay-input" id="e14"></textarea></div>
+<div class="actions"><button class="primary" type="submit" id="submitBtn">Nộp bài và xem điểm trắc nghiệm</button><button class="secondary" type="button" onclick="window.print()">In đề</button></div>
+<p class="hint">Điểm trắc nghiệm được chấm tự động (5 điểm). Phần tự luận chưa được hệ thống tự động chấm; giáo viên chấm theo hướng dẫn đáp án.</p><div id="result" class="result" aria-live="polite"></div></form>
+<footer>Đề tham khảo phục vụ ôn tập · Giáo viên điều chỉnh theo phân phối chương trình thực tế của nhà trường.</footer></div>
+<script>
+const Q=[
+["Máy tính điện tử thế hệ đầu tiên thường sử dụng linh kiện nào?",["Bóng đèn điện tử chân không","Vi xử lí tích hợp mật độ rất cao","Mạch tích hợp siêu nhỏ","Trí tuệ nhân tạo"],0],
+["Sự phát triển của máy tính qua các thế hệ có xu hướng nào?",["Kích thước lớn dần và tốc độ chậm hơn","Nhỏ gọn hơn, tốc độ xử lí và khả năng lưu trữ tăng","Không thay đổi về công nghệ","Chỉ dùng để tính phép cộng"],1],
+["Thông tin trong môi trường số được hiểu phù hợp nhất là gì?",["Thông tin chỉ tồn tại trên giấy","Thông tin được tạo lập, lưu trữ, xử lí hoặc truyền bằng thiết bị số","Thông tin không thể sao chép","Thông tin chỉ gồm văn bản"],1],
+["Đặc điểm nào thường đúng với thông tin số?",["Khó sao chép và chia sẻ trong mọi trường hợp","Có thể được sao chép, lan truyền nhanh","Luôn chính xác tuyệt đối","Không thể chỉnh sửa"],1],
+["Khi sử dụng một hình ảnh tìm được trên Internet trong bài thuyết trình, em nên làm gì?",["Ghi nguồn và kiểm tra quyền sử dụng","Xóa tên tác giả để bài đẹp hơn","Tự nhận là ảnh do mình tạo","Chia sẻ lại mà không cần quan tâm nguồn"],0],
+["Vì sao cần đánh giá độ tin cậy của thông tin trên Internet?",["Vì tất cả thông tin đều sai","Vì thông tin trực tuyến có thể thiếu chính xác, lỗi thời hoặc thiên lệch","Vì không thể tìm được nguồn đáng tin cậy","Vì chỉ giáo viên mới được đọc Internet"],1],
+["Dấu hiệu nào giúp đánh giá một nguồn thông tin đáng tin cậy hơn?",["Không ghi tác giả và ngày đăng","Nội dung giật gân, không có dẫn chứng","Có tác giả/cơ quan rõ ràng, dẫn chứng và có thể đối chiếu","Được chia sẻ nhiều lần nên chắc chắn đúng"],2],
+["Hành động nào thể hiện văn hóa khi giao tiếp trên mạng?",["Bình luận xúc phạm người khác","Chia sẻ thông tin riêng tư của bạn","Trao đổi lịch sự, tôn trọng ý kiến và quyền riêng tư","Đăng lại tin chưa kiểm chứng"],2],
+["Khi nhận được tin nhắn có đường liên kết lạ yêu cầu nhập mật khẩu, em nên làm gì?",["Nhập ngay để tránh bị khóa tài khoản","Chuyển tiếp cho tất cả bạn bè","Không cung cấp thông tin, kiểm tra nguồn và báo người lớn khi cần","Dùng mật khẩu giống nhau ở mọi trang"],2],
+["Hành vi nào có thể vi phạm đạo đức hoặc pháp luật trong môi trường số?",["Trích dẫn nguồn khi dùng tài liệu","Xin phép trước khi đăng ảnh riêng tư của người khác","Phát tán hình ảnh riêng tư của người khác khi chưa được đồng ý","Báo cáo nội dung lừa đảo"],2]
+];
+const root=document.getElementById('questions'), form=document.getElementById('quizForm');
+root.innerHTML=Q.map((q,i)=>`<fieldset class="question"><legend class="q-title"><span class="q-number">Câu ${i+1}.</span> ${q[0]}</legend><div class="options">${q[1].map((o,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}"><span><b>${String.fromCharCode(65+j)}.</b> ${o}</span></label>`).join('')}</div></fieldset>`).join('');
+root.addEventListener('change',()=>{let n=Q.filter((q,i)=>form.querySelector(`[name=q${i}]:checked`)).length;document.getElementById('answeredLabel').textContent=`Đã trả lời ${n}/10 câu`});
+let remain=2700, ended=false;const timer=setInterval(()=>{if(ended)return;remain--;document.getElementById('timeText').textContent=`${String(Math.floor(remain/60)).padStart(2,'0')}:${String(remain%60).padStart(2,'0')}`;document.getElementById('timeBar').style.width=(remain/2700*100)+'%';if(remain<=0)submit(true)},1000);
+function submit(auto=false){if(ended)return;if(!auto&&(!document.getElementById('studentName').value.trim()||!document.getElementById('studentClass').value.trim())){alert('Em hãy nhập họ tên và lớp trước khi nộp bài.');return}if(!auto&&!confirm('Em chắc chắn muốn nộp bài?'))return;ended=true;clearInterval(timer);let score=0,correct=0;Q.forEach((q,i)=>{let a=form.querySelector(`[name=q${i}]:checked`);if(a&&+a.value===q[2]){score+=.5;correct++}});document.getElementById('result').textContent=`${document.getElementById('studentName').value||'Học sinh'} – Điểm trắc nghiệm: ${score.toFixed(1)}/5,0 (${correct}/10 câu đúng). Phần tự luận chờ giáo viên chấm.`;form.querySelectorAll('input,textarea,button[type=submit]').forEach(x=>x.disabled=true)}
+form.addEventListener('submit',e=>{e.preventDefault();submit(false)});
+</script></body></html>
